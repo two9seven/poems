@@ -1,0 +1,7 @@
+{
+  "name": "poems",
+  "short_name": "poems",
+  "description": "a way to view poems from poetry foundation",
+  "start_url": "/",
+  "display": "standalone"
+}
