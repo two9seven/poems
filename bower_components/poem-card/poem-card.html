@@ -1,5 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../poem-data/poem-data.html">
+<link rel="import" href="../paper-card/paper-card.html">
 
 <dom-module id="poem-card">
   <template>
@@ -7,11 +8,25 @@
       :host {
         display: block;
       }
+      paper-card {
+        max-width: 300px
+      }
     </style>
-    <h2>Hello [[title]]!</h2>
+
+    <paper-card heading=[[title]] image="https://placeimg.com/300/150/nature/sepia" inner-h-t-m-l=[[content]] alt=[[title]]>
+      <div class="card-content">
+        [[author]]
+      </div>
+      <div class="card-actions">
+        <paper-button>Share</paper-button>
+        <paper-button>Explore!</paper-button>
+      </div>
+    </paper-card>
+
   </template>
 
   <script>
+    description = poems.rss.channel.item[0].description
     /**
      * `poem-card`
      * an individual poem in card form
@@ -30,7 +45,15 @@
           },
           title: {
             type: String,
-            value: poems.items[0].title
+            value: poems.rss.channel.item[0].title.__cdata
+          },
+          author: {
+            type: String,
+            value: poems.rss.channel.item[0].creator.__cdata
+          },
+          content: {
+            type: String,
+            value: description
           }
         };
       }
