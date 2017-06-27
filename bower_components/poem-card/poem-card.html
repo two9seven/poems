@@ -26,7 +26,6 @@
   </template>
 
   <script>
-    description = poems.rss.channel.item[0].description
     /**
      * `poem-card`
      * an individual poem in card form
@@ -45,15 +44,15 @@
           },
           title: {
             type: String,
-            value: poems.rss.channel.item[0].title.__cdata
+            value: poem[0].title
           },
           author: {
             type: String,
-            value: poems.rss.channel.item[0].creator.__cdata
+            value: poem[0].author
           },
           content: {
             type: String,
-            value: description
+            value: poem[0].content
           }
         };
       }

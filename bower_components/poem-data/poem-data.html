@@ -33,5 +33,31 @@
     }
 
     window.customElements.define(PoemData.is, PoemData);
+
+  </script>
+
+
+  <script type="text/javascript">
+      // var content = document.getElementById('content');
+      var poem = [];
+      var xhr = new XMLHttpRequest();
+
+      xhr.onreadystatechange = function(){
+          if (xhr.readyState==4 && xhr.status==200)
+          {
+              var data = JSON.parse(xhr.responseText);
+              if(data.status == 'ok'){
+
+                  console.log(data.feed.title);
+                  console.log(data.items[1]);
+                  poem.push(data.items[1]);
+
+
+              }
+          }
+      };
+      xhr.open('GET','https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.poetryfoundation.org%2FPoetryFoundation%2FPoemOfTheDayText&api_key=4vrmuvoeyeqsh5dp5njskvvhbtlobffn3brylqsv',true);
+      xhr.send();
+
   </script>
 </dom-module>
