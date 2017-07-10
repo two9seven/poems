@@ -1,6 +1,6 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../poem-data/poem-data.html">
 <link rel="import" href="../paper-card/paper-card.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
 
 <dom-module id="poem-card">
   <template>
@@ -11,17 +11,24 @@
       img{
         width: 100%
       }
-    </style>
 
-    <paper-card heading=[[title]] image="https://placeimg.com/600/400/nature/sepia" inner-h-t-m-l=[[content]] alt=[[title]]>
-      <div class="card-content">
-        [[author]]
-      </div>
-      <div class="card-actions">
-        <paper-button>Share</paper-button>
-        <paper-button>Explore!</paper-button>
-      </div>
-    </paper-card>
+    </style>
+    <iron-ajax
+      auto
+      url="https://api.rss2json.com/v1/api.json?rss_url=http%3A%2F%2Ffeeds.poetryfoundation.org%2FPoetryFoundation%2FPoemOfTheDayText&api_key=4vrmuvoeyeqsh5dp5njskvvhbtlobffn3brylqsv"
+      handle-as="json"
+      last-response="{{response}}">
+    </iron-ajax>
+      <paper-card heading="{{response.items.0.title}}" image="https://placeimg.com/600/400/nature/sepia" alt="{{response.items.0.title}}">
+        <div class="card-content">
+          <p inner-h-t-m-l="{{response.items.0.content}}"></p>
+        </div>
+        <div class="card-actions">
+          <paper-button>Share</paper-button>
+          <paper-button>Explore!</paper-button>
+        </div>
+
+
 
   </template>
 
@@ -41,18 +48,6 @@
           prop1: {
             type: String,
             value: 'poem-card'
-          },
-          title: {
-            type: String,
-            value: poem[0].title
-          },
-          author: {
-            type: String,
-            value: poem[0].author
-          },
-          content: {
-            type: String,
-            value: poem[0].content
           }
         };
       }
