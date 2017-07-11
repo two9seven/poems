@@ -1,6 +1,7 @@
 <link rel="import" href="../polymer/polymer-element.html">
 <link rel="import" href="../paper-card/paper-card.html">
 <link rel="import" href="../iron-ajax/iron-ajax.html">
+<link href="https://fonts.googleapis.com/css?family=Alegreya+Sans+SC:400i|Fascinate|Fascinate+Inline|Jura" rel="stylesheet">
 
 <dom-module id="poem-card">
   <template>
@@ -8,8 +9,26 @@
       :host {
         display: block;
       }
-      img{
+
+      img {
         width: 100%
+      }
+
+      paper-card {
+        --paper-card-header-text: {
+          font-family: 'Fascinate Inline', cursive;
+          color: yellow;
+          font-size: xx-large;
+        };
+        --paper-card-header{
+          position: 50%;
+        };
+      }
+      .card-content *{
+        margin: 8px 0;
+        font-weight: bold;
+        font-family: 'Alegreya Sans SC', sans-serif;
+
       }
 
     </style>
