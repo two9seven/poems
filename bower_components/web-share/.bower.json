@@ -1,0 +1,29 @@
+{
+  "name": "web-share",
+  "description": "Wraps the web share api with a fallback to sharing on twitter",
+  "main": "web-share.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0-rc.2"
+  },
+  "devDependencies": {
+    "iron-component-page": "PolymerElements/iron-component-page#2.0-preview",
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "web-component-tester": "v6.0.0-prerelease.5",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0-rc.2"
+  },
+  "homepage": "https://github.com/jgw96/web-share",
+  "version": "0.5.0",
+  "_release": "0.5.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.5.0",
+    "commit": "1ca7d2eb9db6c2a877f4e48ad9b4f937f41a5e7e"
+  },
+  "_source": "https://github.com/jgw96/web-share.git",
+  "_target": "^0.5.0",
+  "_originalSource": "jgw96/web-share",
+  "_direct": true
+}
